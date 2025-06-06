@@ -28,6 +28,7 @@ class Product:
             return True
         return False
 
+
     def activate(self):
         self.active = True
 
