@@ -24,9 +24,7 @@ class Product:
 
 
     def is_active(self) -> bool:
-        if self.quantity > 0:
-            return True
-        return False
+        return self.quantity
 
 
     def activate(self):
@@ -42,6 +40,9 @@ class Product:
 
 
     def buy(self, quantity) -> float:
+
+        if quantity > self.quantity:
+            raise ValueError("Quantity is more than quantity of available items")
         if quantity <= 0:
             raise ValueError("Quantity cannot be zero or negative")
         if isinstance(quantity, str):
